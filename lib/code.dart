@@ -2,7 +2,22 @@ import 'package:code_text_field/code_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_highlight/themes/androidstudio.dart';
+import 'package:flutter_highlight/themes/tomorrow.dart';
 import 'package:highlight/languages/dart.dart';
+
+class Code extends StatelessWidget {
+  const Code({super.key, required this.asset});
+
+  final String asset;
+
+  @override
+  Widget build(BuildContext context) {
+    return CodeLoader(
+      asset: asset,
+      builder: (code) => SingleChildScrollView(child: CodeView(code)),
+    );
+  }
+}
 
 class CodeLoader extends StatelessWidget {
   final String asset;
@@ -26,15 +41,15 @@ class CodeLoader extends StatelessWidget {
   }
 }
 
-class CodeViewer extends StatefulWidget {
+class CodeView extends StatefulWidget {
   final String code;
-  const CodeViewer(this.code, {super.key});
+  const CodeView(this.code, {super.key});
 
   @override
-  State<CodeViewer> createState() => _CodeViewerState();
+  State<CodeView> createState() => _CodeViewState();
 }
 
-class _CodeViewerState extends State<CodeViewer> {
+class _CodeViewState extends State<CodeView> {
   late CodeController _codeController;
 
   @override
@@ -56,7 +71,7 @@ class _CodeViewerState extends State<CodeViewer> {
   @override
   Widget build(BuildContext context) {
     return CodeTheme(
-      data: const CodeThemeData(styles: androidstudioTheme),
+      data: CodeThemeData(styles: themes[Theme.of(context).brightness]!),
       child: CodeField(
         controller: _codeController,
         readOnly: true,
@@ -65,3 +80,8 @@ class _CodeViewerState extends State<CodeViewer> {
     );
   }
 }
+
+const themes = {
+  Brightness.dark: androidstudioTheme,
+  Brightness.light: tomorrowTheme
+};
