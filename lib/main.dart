@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'routing.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,21 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Charts Examples',
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Charts examples")),
-      body: Center(
-        child: Text("Hello World"),
-      ),
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }
