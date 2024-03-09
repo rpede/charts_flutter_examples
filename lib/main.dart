@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Charts Examples',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       initialRoute: '/',
       routes: routes,
     );

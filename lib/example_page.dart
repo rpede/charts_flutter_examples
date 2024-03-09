@@ -23,10 +23,9 @@ class _ExamplePageState extends State<ExamplePage> {
           dividerBuilder:
               (axis, index, resizable, dragging, highlighted, themeData) =>
                   Container(
-            color: dragging ? Colors.grey[300] : Colors.grey[100],
             child: Icon(
               Icons.drag_indicator,
-              color: highlighted ? Colors.grey[600] : Colors.grey[400],
+              color: highlighted ? Colors.blueGrey : Colors.grey[500],
             ),
           ),
           children: [
