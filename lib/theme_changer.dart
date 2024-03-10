@@ -7,6 +7,14 @@ class ThemeChanger extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
+      selectedItemBuilder: (context) => [
+        for (final icon in [
+          Icons.invert_colors,
+          Icons.dark_mode,
+          Icons.light_mode,
+        ])
+          Icon(icon)
+      ],
       value: MyApp.themeNotifier.value,
       items: [
         for (final (mode, icon) in [
