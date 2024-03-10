@@ -1,5 +1,6 @@
 import 'package:charts_flutter_examples/code.dart';
 import 'package:charts_flutter_examples/routing.dart';
+import 'package:charts_flutter_examples/theme_changer.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_split_view/multi_split_view.dart';
 
@@ -15,7 +16,10 @@ class _ExamplePageState extends State<ExamplePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.example.title)),
+      appBar: AppBar(
+        title: Text(widget.example.title),
+        actions: const [ThemeChanger()],
+      ),
       body: MultiSplitViewTheme(
         data: MultiSplitViewThemeData(dividerThickness: 24),
         child: MultiSplitView(

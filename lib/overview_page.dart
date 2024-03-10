@@ -1,3 +1,4 @@
+import 'package:charts_flutter_examples/theme_changer.dart';
 import 'package:flutter/material.dart';
 
 import 'routing.dart';
@@ -9,7 +10,7 @@ class OverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final entries = examplesExtended.entries.toList();
     return Scaffold(
-      appBar: AppBar(title: const Text("Overview")),
+      appBar: AppBar(title: const Text("Overview"), actions: const [ThemeChanger()],),
       body: GridView.count(
         padding: const EdgeInsets.all(8),
         crossAxisSpacing: 8,
