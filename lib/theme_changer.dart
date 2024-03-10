@@ -6,22 +6,18 @@ class ThemeChanger extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final modes = [
+      (ThemeMode.system, Icons.invert_colors),
+      (ThemeMode.dark, Icons.dark_mode),
+      (ThemeMode.light, Icons.light_mode),
+    ];
     return DropdownButton(
-      selectedItemBuilder: (context) => [
-        for (final icon in [
-          Icons.invert_colors,
-          Icons.dark_mode,
-          Icons.light_mode,
-        ])
-          Icon(icon)
-      ],
       value: MyApp.themeNotifier.value,
+      selectedItemBuilder: (context) => [
+        for (final (_, icon) in modes) Icon(icon),
+      ],
       items: [
-        for (final (mode, icon) in [
-          (ThemeMode.system, Icons.invert_colors),
-          (ThemeMode.dark, Icons.dark_mode),
-          (ThemeMode.light, Icons.light_mode),
-        ])
+        for (final (mode, icon) in modes)
           DropdownMenuItem(
             value: mode,
             child: Row(
