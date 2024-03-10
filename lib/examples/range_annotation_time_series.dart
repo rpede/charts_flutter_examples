@@ -1,11 +1,19 @@
-/// Timeseries chart example
+/// Time series chart with range annotation example
+///
+/// The example future range annotation extends beyond the range of the series
+/// data, demonstrating the effect of the [Charts.RangeAnnotation.extendAxis]
+/// flag. This can be set to false to disable range extension.
+///
+/// Additional annotations may be added simply by adding additional
+/// [Charts.RangeAnnotationSegment] items to the list.
 library;
+
 import 'package:community_charts_flutter/community_charts_flutter.dart'
     as charts;
 import 'package:flutter/material.dart';
 
-class SimpleTimeSeriesChart extends StatelessWidget {
-  const SimpleTimeSeriesChart({super.key});
+class TimeSeriesRangeAnnotationChart extends StatelessWidget {
+  const TimeSeriesRangeAnnotationChart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +21,21 @@ class SimpleTimeSeriesChart extends StatelessWidget {
       [
         charts.Series<TimeSeriesSales, DateTime>(
           id: 'Sales',
-          colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
           domainFn: (TimeSeriesSales sales, _) => sales.time,
           measureFn: (TimeSeriesSales sales, _) => sales.sales,
           data: data,
         )
       ],
       animate: true,
+      behaviors: [
+        charts.RangeAnnotation([
+          charts.RangeAnnotationSegment(
+            DateTime(2017, 10, 4),
+            DateTime(2017, 10, 15),
+            charts.RangeAnnotationAxisType.domain,
+          ),
+        ]),
+      ],
     );
   }
 }

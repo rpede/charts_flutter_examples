@@ -1,11 +1,14 @@
-/// Timeseries chart example
+/// Example of a time series chart with a confidence interval.
+///
+/// Confidence interval is defined by specifying the upper and lower measure
+/// bounds in the series.
 library;
 import 'package:community_charts_flutter/community_charts_flutter.dart'
     as charts;
 import 'package:flutter/material.dart';
 
-class SimpleTimeSeriesChart extends StatelessWidget {
-  const SimpleTimeSeriesChart({super.key});
+class TimeSeriesConfidenceInterval extends StatelessWidget {
+  const TimeSeriesConfidenceInterval({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +19,18 @@ class SimpleTimeSeriesChart extends StatelessWidget {
           colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
           domainFn: (TimeSeriesSales sales, _) => sales.time,
           measureFn: (TimeSeriesSales sales, _) => sales.sales,
+          // When the measureLowerBoundFn and measureUpperBoundFn is defined,
+          // the line renderer will render the area around the bounds.
+          measureLowerBoundFn: (TimeSeriesSales sales, _) => sales.sales - 5,
+          measureUpperBoundFn: (TimeSeriesSales sales, _) => sales.sales + 5,
           data: data,
         )
       ],
       animate: true,
+      // Optionally pass in a [DateTimeFactory] used by the chart. The factory
+      // should create the same type of [DateTime] as the data provided. If none
+      // specified, the default creates local date time.
+      dateTimeFactory: const charts.LocalDateTimeFactory(),
     );
   }
 }

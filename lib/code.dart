@@ -27,7 +27,7 @@ class CodeLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: rootBundle.loadString("lib/examples/simple_time_series.dart"),
+      future: rootBundle.loadString(asset),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return builder(snapshot.data!);

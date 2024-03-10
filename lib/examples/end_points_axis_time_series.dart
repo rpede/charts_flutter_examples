@@ -1,11 +1,13 @@
-/// Timeseries chart example
+/// Example of a time series chart with an end points domain axis.
+///
+/// An end points axis generates two ticks, one at each end of the axis range.
 library;
 import 'package:community_charts_flutter/community_charts_flutter.dart'
     as charts;
 import 'package:flutter/material.dart';
 
-class SimpleTimeSeriesChart extends StatelessWidget {
-  const SimpleTimeSeriesChart({super.key});
+class EndPointsAxisTimeSeriesChart extends StatelessWidget {
+  const EndPointsAxisTimeSeriesChart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,14 @@ class SimpleTimeSeriesChart extends StatelessWidget {
         )
       ],
       animate: true,
+      // Configures an axis spec that is configured to render one tick at each
+      // end of the axis range, anchored "inside" the axis. The start tick label
+      // will be left-aligned with its tick mark, and the end tick label will be
+      // right-aligned with its tick mark.
+      domainAxis: const charts.EndPointsTimeAxisSpec(),
     );
   }
+
 }
 
 final data = [

@@ -14,7 +14,7 @@ class OverviewPage extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
-        crossAxisCount: 4,
+        crossAxisCount: 3,
         children: [
           for (final entry in entries)
             ExampleTile(entry: entry)
