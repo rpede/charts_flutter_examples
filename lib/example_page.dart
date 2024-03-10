@@ -15,6 +15,8 @@ class ExamplePage extends StatefulWidget {
 class _ExamplePageState extends State<ExamplePage> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final aspect = size.width / size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.example.title),
@@ -23,6 +25,7 @@ class _ExamplePageState extends State<ExamplePage> {
       body: MultiSplitViewTheme(
         data: MultiSplitViewThemeData(dividerThickness: 24),
         child: MultiSplitView(
+          axis: aspect > 1 ? Axis.horizontal : Axis.vertical,
           dividerBuilder:
               (axis, index, resizable, dragging, highlighted, themeData) =>
                   Container(
