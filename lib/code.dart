@@ -75,6 +75,7 @@ class _CodeViewState extends State<CodeView> {
       child: CodeField(
         controller: _codeController,
         readOnly: true,
+        wrap: true,
         textStyle: const TextStyle(fontFamily: 'SourceCodePro'),
       ),
     );
