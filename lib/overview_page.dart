@@ -8,6 +8,7 @@ class OverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     final entries = examplesExtended.entries.toList();
     return Scaffold(
       appBar: AppBar(title: const Text("Overview"), actions: const [ThemeChanger()],),
@@ -15,7 +16,7 @@ class OverviewPage extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
-        crossAxisCount: 3,
+        crossAxisCount: width ~/ 400,
         children: [
           for (final entry in entries)
             ExampleTile(entry: entry)
