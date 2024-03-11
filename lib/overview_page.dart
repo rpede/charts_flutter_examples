@@ -11,16 +11,16 @@ class OverviewPage extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final entries = examplesExtended.entries.toList();
     return Scaffold(
-      appBar: AppBar(title: const Text("Overview"), actions: const [ThemeChanger()],),
+      appBar: AppBar(
+        title: const Text("Overview"),
+        actions: const [ThemeChanger()],
+      ),
       body: GridView.count(
         padding: const EdgeInsets.all(8),
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,
-        crossAxisCount: (width ~/ 300).clamp(1, 16),
-        children: [
-          for (final entry in entries)
-            ExampleTile(entry: entry)
-        ],
+        crossAxisCount: (width ~/ 400).clamp(1, 16),
+        children: [for (final entry in entries) ExampleTile(entry: entry)],
       ),
     );
   }
