@@ -46730,7 +46730,7 @@ return new A.qq($.aNX(),"/","Charts Examples",s,r,b,null)},
 $S:354}
 A.vo.prototype={
 G(a){var s,r,q,p,o=null,n=A.c9(a,o,t.l).w,m=$.aC_().geK().ez(0),l=A.aCl(B.pD,B.ab4)
-n=B.f.io(B.d.cs(n.a.a,300),1,16)
+n=B.f.io(B.d.cs(n.a.a,400),1,16)
 s=A.a([],t.E)
 for(r=m.length,q=0;q<m.length;m.length===r||(0,A.D)(m),++q)s.push(new A.Mf(m[q],o))
 r=A.aGo(s,!0,!0,!0)
