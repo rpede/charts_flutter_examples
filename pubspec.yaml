@@ -41,6 +41,7 @@ dependencies:
   highlight: ^0.7.0
   multi_split_view: ^2.4.0
 
+  intl: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
